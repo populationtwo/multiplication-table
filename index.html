@@ -4,18 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Multiplication Table</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href=" https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
 
 </head>
 <body>
-
-	<table ng-controller="MultiplicationCtrl">
-		<tr ng-repeat="numberA in numbers">
-			<td ng-repeat="numberB in numbers">
-				{{ numberA * numberB }}
+<div class="row">
+<div ng-controller="MultiplicationCtrl" initial-number-limit="10" class="columns small-6">
+	<input type="number" ng-model="numberLimit" placeholder="Enter a number" />
+	<table>
+		<tr ng-repeat="numberA in numbers()">
+			<td ng-repeat="numberB in numbers()">
+				{{ compute(numberA,numberB) }}
 			</td>
 		</tr>
 	</table>
-
-	<script src="myApp.js" type="text/javascript"></script>
+</div>
+</div>
+<script src="myApp.js" type="text/javascript"></script>
 </body>
 </html>
